@@ -1,6 +1,7 @@
 .venv/
-unit3/logs/
+unit3/logs/**
 unit3/hub/**
+!unit3/logs/**/
 !unit3/hub/**/
 !unit3/hub/**/replay.mp4
-unit3/dqn.yml
+!unit3/**/*.yml

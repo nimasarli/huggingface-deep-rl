@@ -1,0 +1,22 @@
+# DQN configuration for Space Invaders NoFrameskip.
+# The notebook command uses --device auto, which selects the available CUDA GPU.
+SpaceInvadersNoFrameskip-v4:
+  env_wrapper:
+    - stable_baselines3.common.atari_wrappers.AtariWrapper
+  frame_stack: 4
+  policy: CnnPolicy
+  n_timesteps: !!float 1e6
+
+  # Core hyperparameters recommended by the notebook.
+  learning_rate: !!float 1e-4
+  buffer_size: 100000
+  batch_size: 32
+
+  # Standard Atari DQN training settings.
+  learning_starts: 100000
+  target_update_interval: 1000 # Copies the online network's weights to the target network every 1,000 environment steps. The target network stabilizes DQN learning
+  train_freq: 4
+  gradient_steps: 1
+  exploration_fraction: 0.1
+  exploration_final_eps: 0.01
+  optimize_memory_usage: false
